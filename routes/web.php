@@ -11,4 +11,4 @@
 |
 */
 use Goutte\Client;
-Route::get('/', 'AviationStatisticsController@getStatistics');
+Route::get('/', 'GroundStatisticsController@getStatistics');

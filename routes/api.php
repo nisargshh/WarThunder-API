@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/statistics/{user}/total', 'TotalStatisticsController@getStatistics');
+Route::get('/statistics/{user}/aviation', 'AviationStatisticsController@getStatistics');
+Route::get('/statistics/{user}/ground', 'GroundStatisticsController@getStatistics');

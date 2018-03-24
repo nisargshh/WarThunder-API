@@ -10,9 +10,9 @@ class AviationStatisticsController extends Controller
     /**
     * Aviation Statistic for player
     */
-    public function getStatistics(){
+    public function getStatistics($name){
       $client = new Client();
-      $crawler = $client->request('GET', 'https://warthunder.com/en/community/userinfo/?nick=S0Clutch');
+      $crawler = $client->request('GET', 'https://warthunder.com/en/community/userinfo/?nick=' . $name);
 
       $name = $this->name($crawler);
       $header = $this->header($crawler);
@@ -34,7 +34,7 @@ class AviationStatisticsController extends Controller
     }
 
     /**
-    *
+    * Merge the arrays
     */
     public function mergeArray($arrs1, $arrs2, $titles){
       $size = count($arrs1);
@@ -49,7 +49,7 @@ class AviationStatisticsController extends Controller
     }
 
     /**
-    *
+    * Player name
     */
     public function name($crawler){
       return $crawler->filter('.user-profile__data-nick')->each(function ($node) {
