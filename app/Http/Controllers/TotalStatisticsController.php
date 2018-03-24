@@ -46,7 +46,7 @@ class TotalStatisticsController extends Controller
     foreach ($titles as $title) {
       $i = 0;
       foreach ($arrs1 as $arr1) {
-        $merge[$title][$arr1][] = $arrs2[$i];
+        $merge[$title][$arr1] = $arrs2[$i];
         $i++;
       }
     }

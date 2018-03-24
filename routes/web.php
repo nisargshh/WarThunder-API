@@ -10,5 +10,4 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use Goutte\Client;
-Route::get('/', 'FleetStatisticsController@getStatistics');
+  
