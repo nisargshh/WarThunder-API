@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Goutte\Client;
 
-class GroundStatisticsController extends Controller
+class FleetStatisticsController extends Controller
 {
   /**
-  * Ground Statistic for player
+  * Fleet Statistic for player
   */
   public function getStatistics($name){
     $client = new Client();
@@ -67,7 +67,7 @@ class GroundStatisticsController extends Controller
   * Table headers
   */
   public function header($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list:nth-child(2) > li:not(:first-child)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list:nth-child(2) > li:not(:first-child)')->each(function ($node) {
       return $node->text();
     });
   }
@@ -76,7 +76,7 @@ class GroundStatisticsController extends Controller
   * Ab Title
   */
   public function abTitle($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list-ab:nth-child(3) > li:nth-child(1)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list-ab:nth-child(3) > li:nth-child(1)')->each(function ($node) {
       return $node->text();
     });
   }
@@ -85,7 +85,7 @@ class GroundStatisticsController extends Controller
   * Arcade battle statistics for player
   */
   public function abStatistics($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list-ab:nth-child(3) > li:not(:first-child)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list-ab:nth-child(3) > li:not(:first-child)')->each(function ($node) {
       return $node->text();
     });
   }
@@ -94,7 +94,7 @@ class GroundStatisticsController extends Controller
   * Rb Title
   */
   public function rbTitle($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list-rb:nth-child(4) > li:nth-child(1)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list-rb:nth-child(4) > li:nth-child(1)')->each(function ($node) {
       return $node->text();
     });
   }
@@ -103,7 +103,7 @@ class GroundStatisticsController extends Controller
   * Realistic battle statistics for player
   */
   public function rbStatistics($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list-rb:nth-child(4) > li:not(:first-child)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list-rb:nth-child(4) > li:not(:first-child)')->each(function ($node) {
       return $node->text();
     });
   }
@@ -112,7 +112,7 @@ class GroundStatisticsController extends Controller
   * Sb Title
   */
   public function sbTitle($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list-sb:nth-child(5) > li:nth-child(1)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list-sb:nth-child(5) > li:nth-child(1)')->each(function ($node) {
       return $node->text();
     });
   }
@@ -121,7 +121,7 @@ class GroundStatisticsController extends Controller
   * Simulator battle statistics for player
   */
   public function sbStatistics($crawler){
-    return $crawler->filter('.profile-stat__list-row:nth-child(2) > .profile-stat__list-sb:nth-child(5) > li:not(:first-child)')->each(function ($node) {
+    return $crawler->filter('.profile-stat__list-row:nth-child(3) > .profile-stat__list-sb:nth-child(5) > li:not(:first-child)')->each(function ($node) {
       return $node->text();
     });
   }

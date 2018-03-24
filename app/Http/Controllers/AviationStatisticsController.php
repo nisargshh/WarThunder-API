@@ -23,6 +23,12 @@ class AviationStatisticsController extends Controller
       $sbtitle = $this->sbTitle($crawler);
       $sbdata = $this->sbStatistics($crawler);
 
+      if(empty($name)){
+        return response()->json([
+          'error' => 'User does not exist'
+        ]);
+      }
+
       $name = $name[0];
       $name = trim(preg_replace('/\s\s+/', ' ', $name));
       $status = array('status' => 'success', 'name' => $name);
