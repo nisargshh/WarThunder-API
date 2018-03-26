@@ -159,6 +159,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Latrell\Swagger\SwaggerServiceProvider::class,
+        L5Swagger\L5SwaggerServiceProvider::class,
 
     ],
 

@@ -1,0 +1,156 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "WarThunder Unofficial API",
+    "version" : "1.0.1",
+    "title" : "Warthunder API",
+    "contact" : {
+      "email" : "emailtonisarg@gmail.com"
+    }
+  },
+  "host" : "warthunderapi.com",
+  "basePath" : "/api",
+  "tags" : [ {
+    "name" : "statistics",
+    "description" : "Statistics for warthunder"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/statistcs/{name}/total" : {
+      "get" : {
+        "tags" : [ "statistics" ],
+        "summary" : "Gets total statistics",
+        "description" : "By passing in the appropriate options, you can search for\navailable statistics in the system\n",
+        "operationId" : "totalStats",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n    {\n        \"status\": \"success\",\n        \"name\": \"S0Clutch\",\n        \"AB\": {\n            \" Victories \": \"5\",\n            \" Completed missions \": \"6\",\n            \" Victories/battles ratio \": \"83%\",\n            \" Deaths \": \"16\",\n            \" Lions earned \": \"1,512\",\n            \" Play time \": \"0h 34m\",\n            \" Air targets destroyed \": \"1\",\n            \" Ground targets destroyed \": \"1\",\n            \" Naval targets destroyed \": \"1\"\n        },\n        \"RB\": {\n            \" Victories \": \"16\",\n            \" Completed missions \": \"28\",\n            \" Victories/battles ratio \": \"56%\",\n            \" Deaths \": \"37\",\n            \" Lions earned \": \"11,596\",\n            \" Play time \": \"3h 7m\",\n            \" Air targets destroyed \": \"2\",\n            \" Ground targets destroyed \": \"6\",\n            \" Naval targets destroyed \": \"N/A\"\n        },\n        \"SB\": {\n            \" Victories \": \"N/A\",\n            \" Completed missions \": \"N/A\",\n            \" Victories/battles ratio \": \"N/A\",\n            \" Deaths \": \"N/A\",\n            \" Lions earned \": \"N/A\",\n            \" Play time \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        }\n      \n}"
+            }
+          },
+          "400" : {
+            "description" : "invaid person name"
+          }
+        }
+      }
+    },
+    "/statistcs/{name}/aviation" : {
+      "get" : {
+        "tags" : [ "statistics" ],
+        "summary" : "Gets aviation statistics",
+        "description" : "By passing in the appropriate options, you can search for\navailable aviation statistics in the system\n",
+        "operationId" : "aviationStats",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n    {\n        \"status\": \"success\",\n        \"name\": \"S0Clutch\",\n        \"AB\": {\n            \" Air battles \": \"18\",\n            \" Air battles in fighters \": \"17\",\n            \" Air battles in bombers \": \"1\",\n            \" Air battles in attackers \": \"N/A\",\n            \"Time played in air battles\": \"0h 34m\",\n            \" Time played in fighter \": \"0h 32m\",\n            \" Time played in bomber \": \"0h 1m\",\n            \"Time played in attackers\": \"N/A\",\n            \" Total targets destroyed \": \"3\",\n            \" Air targets destroyed \": \"1\",\n            \" Ground targets destroyed \": \"1\",\n            \" Naval targets destroyed \": \"1\"\n        },\n        \"RB\": {\n            \" Air battles \": \"6\",\n            \" Air battles in fighters \": \"4\",\n            \" Air battles in bombers \": \"2\",\n            \" Air battles in attackers \": \"N/A\",\n            \"Time played in air battles\": \"0h 22m\",\n            \" Time played in fighter \": \"0h 14m\",\n            \" Time played in bomber \": \"0h 8m\",\n            \"Time played in attackers\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        },\n        \"SB\": {\n            \" Air battles \": \"N/A\",\n            \" Air battles in fighters \": \"N/A\",\n            \" Air battles in bombers \": \"N/A\",\n            \" Air battles in attackers \": \"N/A\",\n            \"Time played in air battles\": \"N/A\",\n            \" Time played in fighter \": \"N/A\",\n            \" Time played in bomber \": \"N/A\",\n            \"Time played in attackers\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        }\n      \n}"
+            }
+          },
+          "400" : {
+            "description" : "invaid person name"
+          }
+        }
+      }
+    },
+    "/statistcs/{name}/ground" : {
+      "get" : {
+        "tags" : [ "statistics" ],
+        "summary" : "Gets ground statistics",
+        "description" : "By passing in the appropriate options, you can search for\navailable ground statistics in the system\n",
+        "operationId" : "groundStats",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n    {\n        \"status\": \"success\",\n        \"name\": \"S0Clutch\",\n        \"AB\": {\n            \" Air battles \": \"18\",\n            \" Air battles in fighters \": \"17\",\n            \" Air battles in bombers \": \"1\",\n            \" Air battles in attackers \": \"N/A\",\n            \"Time played in air battles\": \"0h 34m\",\n            \" Time played in fighter \": \"0h 32m\",\n            \" Time played in bomber \": \"0h 1m\",\n            \"Time played in attackers\": \"N/A\",\n            \" Total targets destroyed \": \"3\",\n            \" Air targets destroyed \": \"1\",\n            \" Ground targets destroyed \": \"1\",\n            \" Naval targets destroyed \": \"1\"\n        },\n        \"RB\": {\n            \" Air battles \": \"6\",\n            \" Air battles in fighters \": \"4\",\n            \" Air battles in bombers \": \"2\",\n            \" Air battles in attackers \": \"N/A\",\n            \"Time played in air battles\": \"0h 22m\",\n            \" Time played in fighter \": \"0h 14m\",\n            \" Time played in bomber \": \"0h 8m\",\n            \"Time played in attackers\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        },\n        \"SB\": {\n            \" Air battles \": \"N/A\",\n            \" Air battles in fighters \": \"N/A\",\n            \" Air battles in bombers \": \"N/A\",\n            \" Air battles in attackers \": \"N/A\",\n            \"Time played in air battles\": \"N/A\",\n            \" Time played in fighter \": \"N/A\",\n            \" Time played in bomber \": \"N/A\",\n            \"Time played in attackers\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        }\n      \n}"
+            }
+          },
+          "400" : {
+            "description" : "invaid person name"
+          }
+        }
+      }
+    },
+    "/statistcs/{name}/fleet" : {
+      "get" : {
+        "tags" : [ "statistics" ],
+        "summary" : "Gets fleet statistics",
+        "description" : "By passing in the appropriate options, you can search for\navailable fleet statistics in the system\n",
+        "operationId" : "fleetStats",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n    {\n        \"status\": \"success\",\n        \"name\": \"S0Clutch\",\n        \"AB\": {\n            \" Naval battles \": \"N/A\",\n            \" Ship battles \": \"N/A\",\n            \" Motor torpedo boat battles \": \"N/A\",\n            \" Motor gun boat battles \": \"N/A\",\n            \" Motor torpedo gun boat battles \": \"N/A\",\n            \" Sub-chaser battles \": \"N/A\",\n            \" Destroyer battles \": \"N/A\",\n            \" Naval ferry barge battles \": \"N/A\",\n            \"Time played naval\": \"N/A\",\n            \"Time played on ship\": \"N/A\",\n            \"Time played on motor torpedo boat\": \"N/A\",\n            \"Time played on motor gun boat\": \"N/A\",\n            \"Time played on motor torpedo gun boat\": \"N/A\",\n            \"Time played on sub-chaser\": \"N/A\",\n            \"Time played on destroyer\": \"N/A\",\n            \"Time played on naval ferry barge\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        },\n        \"RB\": {\n            \" Naval battles \": \"N/A\",\n            \" Ship battles \": \"N/A\",\n            \" Motor torpedo boat battles \": \"N/A\",\n            \" Motor gun boat battles \": \"N/A\",\n            \" Motor torpedo gun boat battles \": \"N/A\",\n            \" Sub-chaser battles \": \"N/A\",\n            \" Destroyer battles \": \"N/A\",\n            \" Naval ferry barge battles \": \"N/A\",\n            \"Time played naval\": \"N/A\",\n            \"Time played on ship\": \"N/A\",\n            \"Time played on motor torpedo boat\": \"N/A\",\n            \"Time played on motor gun boat\": \"N/A\",\n            \"Time played on motor torpedo gun boat\": \"N/A\",\n            \"Time played on sub-chaser\": \"N/A\",\n            \"Time played on destroyer\": \"N/A\",\n            \"Time played on naval ferry barge\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        },\n        \"SB\": {\n            \" Naval battles \": \"N/A\",\n            \" Ship battles \": \"N/A\",\n            \" Motor torpedo boat battles \": \"N/A\",\n            \" Motor gun boat battles \": \"N/A\",\n            \" Motor torpedo gun boat battles \": \"N/A\",\n            \" Sub-chaser battles \": \"N/A\",\n            \" Destroyer battles \": \"N/A\",\n            \" Naval ferry barge battles \": \"N/A\",\n            \"Time played naval\": \"N/A\",\n            \"Time played on ship\": \"N/A\",\n            \"Time played on motor torpedo boat\": \"N/A\",\n            \"Time played on motor gun boat\": \"N/A\",\n            \"Time played on motor torpedo gun boat\": \"N/A\",\n            \"Time played on sub-chaser\": \"N/A\",\n            \"Time played on destroyer\": \"N/A\",\n            \"Time played on naval ferry barge\": \"N/A\",\n            \" Total targets destroyed \": \"N/A\",\n            \" Air targets destroyed \": \"N/A\",\n            \" Ground targets destroyed \": \"N/A\",\n            \" Naval targets destroyed \": \"N/A\"\n        }\n      \n}"
+            }
+          },
+          "400" : {
+            "description" : "invaid person name"
+          }
+        }
+      }
+    },
+    "/statistcs/{name}/vehicle" : {
+      "get" : {
+        "tags" : [ "statistics" ],
+        "summary" : "Gets vehicle statistics",
+        "description" : "By passing in the appropriate options, you can search for\navailable vehicle statistics in the system\n",
+        "operationId" : "vehicleStats",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n  \"status\": \"success\",\n  \"name\": \"S0Clutch\",\n  \"Planes\": {\n      \" USA \": \"10\",\n      \" USSR \": \"5\",\n      \" Great Britain \": \"5\",\n      \" Germany \": \"5\",\n      \" Japan \": \"5\",\n      \" Italy \": \"3\",\n      \" France \": \"5\"\n  },\n  \"Elite-Planes\": {\n    \" USA \": \"1\",\n    \" USSR \": \"0\",\n    \" Great Britain \": \"0\",\n    \" Germany \": \"0\",\n    \" Japan \": \"0\",\n    \" Italy \": \"0\",\n    \" France \": \"0\"\n  },\n  \"Awards\": {\n    \" USA \": \"2\",\n    \" USSR \": \"0\",\n    \" Great Britain \": \"0\",\n    \" Germany \": \"0\",\n    \" Japan \": \"0\",\n    \" Italy \": \"0\",\n    \" France \": \"0\"\n  }\n}"
+            }
+          },
+          "400" : {
+            "description" : "invaid person name"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : { }
+}

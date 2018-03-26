@@ -1,0 +1,36 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title" : "WarThunder Unfofficial API",
+    "description": "WarThunder unofficial profile API",
+    "version": "1.0.0",
+  },
+  "servers": {
+    "url": "https://warthunderapi.com",
+    "description": "Main API Website"
+  },
+  "paths": {
+    "/api/statistics/{name}/total": {
+      "get": {
+        "summary": "Total Statistics of player",
+        "parameters": {
+          "name": "name",
+          "in": "path",
+          "description": "Name of the user",
+          "required": "true",
+          "schema": {
+            "type": "string"
+
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Successful user statistics"
+        },
+        "400": {
+          "description": "Failed user statistics"
+        }
+      }
+    }
+  }
+}

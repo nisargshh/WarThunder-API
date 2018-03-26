@@ -7,9 +7,6 @@ use Goutte\Client;
 
 class TotalStatisticsController extends Controller
 {
-  /**
-  * Get global statistics for a certain player.
-  */
   public function getStatistics($user){
     $client = new Client();
 
@@ -26,7 +23,7 @@ class TotalStatisticsController extends Controller
     if(empty($name)){
       return response()->json([
         'error' => 'User does not exist'
-      ]);
+      ], 400);
     }
 
     $name = $name[0];
