@@ -20,7 +20,7 @@ class ReplaysController extends Controller
       }else {
         return response()->json(['status' => 'error', 'code' => '401', 'message' => 'Not in login page']);
       }
-      
+
       $matches = array();
       $crawler = $client->request('GET', 'https://warthunder.com/en/tournament/replay/type/replays?Filter%5Bkeyword%5D=&Filter%5Bnick%5D='. $name .'&action=search');
 
@@ -191,7 +191,7 @@ class ReplaysController extends Controller
     */
     public function combineArray($arr1){
       $combarr = array();
-      for($i = 0; $i < count($arr1) - 1; $i++){
+      for($i = 0; $i < count($arr1); $i++){
         for($j = 0; $j < count($arr1[$i]); $j++){
           $combarr[] = $arr1[$i][$j];
         }
