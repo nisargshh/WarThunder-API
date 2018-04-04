@@ -75,7 +75,7 @@ window.onload = function() {
   const ui = SwaggerUIBundle({
     dom_id: '#swagger-ui',
 
-    url: "https://warthunderapi.com/json/swagger.json",
+    url: "http://warthunderapi-env.us-east-2.elasticbeanstalk.com/json/swagger.json",
     operationsSorter: {!! isset($operationsSorter) ? '"' . $operationsSorter . '"' : 'null' !!},
     configUrl: {!! isset($additionalConfigUrl) ? '"' . $additionalConfigUrl . '"' : 'null' !!},
     validatorUrl: {!! isset($validatorUrl) ? '"' . $validatorUrl . '"' : 'null' !!},

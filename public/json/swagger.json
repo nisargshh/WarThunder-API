@@ -16,7 +16,7 @@
   } ],
   "schemes" : [ "https" ],
   "paths" : {
-    "/statistcs/{name}/total" : {
+    "/statistics/{name}/total" : {
       "get" : {
         "tags" : [ "statistics" ],
         "summary" : "Gets total statistics",
@@ -38,12 +38,12 @@
             }
           },
           "400" : {
-            "description" : "invaid person name"
+            "description" : "invalid person name"
           }
         }
       }
     },
-    "/statistcs/{name}/aviation" : {
+    "/statistics/{name}/aviation" : {
       "get" : {
         "tags" : [ "statistics" ],
         "summary" : "Gets aviation statistics",
@@ -65,12 +65,12 @@
             }
           },
           "400" : {
-            "description" : "invaid person name"
+            "description" : "invalid person name"
           }
         }
       }
     },
-    "/statistcs/{name}/ground" : {
+    "/statistics/{name}/ground" : {
       "get" : {
         "tags" : [ "statistics" ],
         "summary" : "Gets ground statistics",
@@ -92,12 +92,12 @@
             }
           },
           "400" : {
-            "description" : "invaid person name"
+            "description" : "invalid person name"
           }
         }
       }
     },
-    "/statistcs/{name}/fleet" : {
+    "/statistics/{name}/fleet" : {
       "get" : {
         "tags" : [ "statistics" ],
         "summary" : "Gets fleet statistics",
@@ -124,7 +124,7 @@
         }
       }
     },
-    "/statistcs/{name}/vehicle" : {
+    "/statistics/{name}/vehicle" : {
       "get" : {
         "tags" : [ "statistics" ],
         "summary" : "Gets vehicle statistics",

@@ -36,6 +36,10 @@ class FleetStatisticsController extends Controller
     $merge = array_merge($merge, $this->mergeArray($header, $rbdata, $rbtitle));
     $merge = array_merge($merge, $this->mergeArray($header, $sbdata, $sbtitle));
 
+    $gamp = GAMP::setClientId( '172375005' );
+    $gamp->setDocumentPath( '/api/statistics/' . $name . '/fleet' );
+    $gamp->sendPageview();
+
     return $merge;
   }
 

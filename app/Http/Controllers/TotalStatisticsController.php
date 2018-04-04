@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Goutte\Client;
+use Irazasyed\LaravelGAMP\Facades\GAMP;
 
 class TotalStatisticsController extends Controller
 {
@@ -32,6 +33,11 @@ class TotalStatisticsController extends Controller
     $merge = array_merge($status, $this->mergeArray($headers[0], $abs[0], $title[0]));
     $merge = array_merge($merge, $this->mergeArray($headers[0], $rbs[0], $title[1]));
     $merge = array_merge($merge, $this->mergeArray($headers[0], $sbs[0], $title[2]));
+
+    $gamp = GAMP::setClientId( '172375005' );
+    $gamp->setDocumentPath( '/api/statistics/' . $name . '/total' );
+    $gamp->sendPageview();
+
     return response($merge);
   }
 
