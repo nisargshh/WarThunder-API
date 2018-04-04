@@ -25,6 +25,9 @@ class ReplaysController extends Controller
       $crawler = $client->request('GET', 'https://warthunder.com/en/tournament/replay/type/replays?Filter%5Bkeyword%5D=&Filter%5Bnick%5D='. $name .'&action=search');
 
       $matchid = $this->matchID($crawler, $client, $name);
+      if(count($matchid) == 0){
+        return response()->json(['status' => 'error', 'code' => '402', 'message' => 'User does not have any data']);
+      }
       $matchname = $this->matchName($crawler, $client, $name);
       $gametype = $this->gameType($crawler, $client, $name);
       $gamemode = $this->gameMode($crawler, $client, $name);
