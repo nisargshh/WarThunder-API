@@ -22,3 +22,7 @@ Route::get('/statistics/{user}/aviation', 'AviationStatisticsController@getStati
 Route::get('/statistics/{user}/ground', 'GroundStatisticsController@getStatistics');
 Route::get('/statistics/{user}/fleet', 'FleetStatisticsController@getStatistics');
 Route::get('/statistics/{user}/vehicle', 'VehicleStatisticsController@getStatistics');
+Route::get('/matches/{name}/total', 'ReplaysController@getMatch');
+Route::get('/matches/{name}/aviation', 'AviationReplayController@getMatch');
+Route::get('/matches/{name}/tank', 'TankReplayController@getMatch');
+Route::get('/matches/{name}/mixed', 'TankAndPlaneReplayController@getMatch');

@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "WarThunder Unofficial API",
-    "version" : "1.0.1",
+    "version" : "1.0.2",
     "title" : "Warthunder API",
     "contact" : {
       "email" : "emailtonisarg@gmail.com"
@@ -13,6 +13,9 @@
   "tags" : [ {
     "name" : "statistics",
     "description" : "Statistics for warthunder"
+  }, {
+    "name" : "matches",
+    "description" : "WarThunder Matches"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
@@ -119,7 +122,7 @@
             }
           },
           "400" : {
-            "description" : "invaid person name"
+            "description" : "invalid person name"
           }
         }
       }
@@ -146,7 +149,124 @@
             }
           },
           "400" : {
-            "description" : "invaid person name"
+            "description" : "invalid person name"
+          }
+        }
+      }
+    },
+    "/matches/{name}/total" : {
+      "get" : {
+        "tags" : [ "matches" ],
+        "summary" : "Total matches played by player",
+        "description" : "Total matches played by player\n",
+        "operationId" : "totalMatches",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n  \"status\": \"success\",\n  \"name\": \"S0Clutch\",\n  \"308416430387674097\": {\n    \"Match Name\": \"[Domination] Frozen Pass\",\n    \"Game Type\": \"Random battle\",\n    \"Game Mode\": \"Arcade battles\",\n    \"Vehicle\": \"Tank\",\n    \"Time\": \"00:13:54\"\n  },\n  \"308414909969250946\": {\n    \"Match Name\": \"[Domination] Fields of Normandy\",\n    \"Game Type\": \"Random battle\",\n    \"Game Mode\": \"Arcade battles\",\n    \"Vehicle\": \"Tank\",\n    \"Time\": \"00:16:39\"\n  }\n}"
+            }
+          },
+          "401" : {
+            "description" : "Not in login page"
+          },
+          "402" : {
+            "description" : "User does not have any data"
+          }
+        }
+      }
+    },
+    "/matches/{name}/tank" : {
+      "get" : {
+        "tags" : [ "matches" ],
+        "summary" : "Total tank matches played by player",
+        "description" : "Total tank matches played by player\n",
+        "operationId" : "tankMatches",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n  \"status\": \"success\",\n  \"name\": \"S0Clutch\",\n  \"308416430387674097\": {\n    \"Match Name\": \"[Domination] Frozen Pass\",\n    \"Game Type\": \"Random battle\",\n    \"Game Mode\": \"Arcade battles\",\n    \"Vehicle\": \"Tank\",\n    \"Time\": \"00:13:54\"\n  },\n  \"308414909969250946\": {\n    \"Match Name\": \"[Domination] Fields of Normandy\",\n    \"Game Type\": \"Random battle\",\n    \"Game Mode\": \"Arcade battles\",\n    \"Vehicle\": \"Tank\",\n    \"Time\": \"00:16:39\"\n  }\n}"
+            }
+          },
+          "401" : {
+            "description" : "Not in login page"
+          },
+          "402" : {
+            "description" : "User does not have any data"
+          }
+        }
+      }
+    },
+    "/matches/{name}/aviation" : {
+      "get" : {
+        "tags" : [ "matches" ],
+        "summary" : "Total aviation matches played by player",
+        "description" : "Total aviation matches played by player\n",
+        "operationId" : "aviationMatches",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "examples" : {
+              "application/json" : "{\n  \"status\": \"success\",\n  \"name\": \"S0Clutch\",\n  \"301318082103721665\": {\n    \"Match Name\": \"[Ground Strike] Western Europe (light vehicles)\",\n    \"Game Type\": \"Random battle\",\n    \"Game Mode\": \"Arcade battles\",\n    \"Vehicle\": \"Aircraft\",\n    \"Time\": \"00:08:21\"\n  },\n  \"301315646857263935\": {\n    \"Match Name\": \"[Domination] Britain (light vehicles)\",\n    \"Game Type\": \"Random battle\",\n    \"Game Mode\": \"Arcade battles\",\n    \"Vehicle\": \"Aircraft\",\n    \"Time\": \"00:07:55\"\n  }\n}"
+            }
+          },
+          "401" : {
+            "description" : "Not in login page"
+          },
+          "402" : {
+            "description" : "User does not have any data"
+          }
+        }
+      }
+    },
+    "/matches/{name}/mixed" : {
+      "get" : {
+        "tags" : [ "matches" ],
+        "summary" : "Total mixed matches played by player",
+        "description" : "Total mixed matches played by player\n",
+        "operationId" : "mixedMatches",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Player name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria"
+          },
+          "401" : {
+            "description" : "Not in login page"
+          },
+          "402" : {
+            "description" : "User does not have any data"
           }
         }
       }

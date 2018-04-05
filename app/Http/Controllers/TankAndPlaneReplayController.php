@@ -34,11 +34,14 @@ class TankAndPlaneReplayController extends Controller
       $time = $this->gameTime($crawler, $client, $name);
 
       $status = array('status' => 'success', 'name' => $name);
-      $merge = array_merge($status, $this->mergeArray($matchid, $matchname, 'Match Name'));
-      $merge = array_merge_recursive ($merge, $this->mergeArray($matchid, $gametype, 'Game Type'));
-      $merge = array_merge_recursive ($merge, $this->mergeArray($matchid, $gamemode, 'Game Mode'));
-      $merge = array_merge_recursive ($merge, $this->mergeArray($matchid, $vehicle, 'Vehicle'));
-      $merge = array_merge_recursive ($merge, $this->mergeArray($matchid, $time, 'Time'));
+      $merge = $this->mergeArray($matchid, $matchname, 'Match Name');
+      $merge = $status + $merge;
+      //$merge = array_merge_recursive($status, $this->mergeArray($matchid, $matchname, 'Match Name'));
+      $merge = $this->array_merge_recursive_distinct($merge, $this->mergeArray($matchid, $gametype, 'Game Type'));
+
+      $merge = $this->array_merge_recursive_distinct ($merge, $this->mergeArray($matchid, $gamemode, 'Game Mode'));
+      $merge = $this->array_merge_recursive_distinct ($merge, $this->mergeArray($matchid, $vehicle, 'Vehicle'));
+      $merge = $this->array_merge_recursive_distinct ($merge, $this->mergeArray($matchid, $time, 'Time'));
       return $merge;
     }
 
@@ -213,6 +216,27 @@ class TankAndPlaneReplayController extends Controller
       }
       return $merge;
     }
-
+    public function array_merge_recursive_distinct () {
+      $arrays = func_get_args();
+      $base = array_shift($arrays);
+      if(!is_array($base)) $base = empty($base) ? array() : array($base);
+      foreach($arrays as $append) {
+        if(!is_array($append)) $append = array($append);
+        foreach($append as $key => $value) {
+          if(!array_key_exists($key, $base) and !is_numeric($key)) {
+            $base[$key] = $append[$key];
+            continue;
+          }
+          if(is_array($value) or is_array($base[$key])) {
+            $base[$key] = $this->array_merge_recursive_distinct($base[$key], $append[$key]);
+          } else if(is_numeric($key)) {
+            if(!in_array($value, $base)) $base[] = $value;
+          } else {
+            $base[$key] = $value;
+          }
+        }
+      }
+      return $base;
+    }
 
 }
