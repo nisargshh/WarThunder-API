@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Goutte\Client;
+use Irazasyed\LaravelGAMP\Facades\GAMP;
 
 class ReplaysController extends Controller
 {
@@ -43,6 +44,10 @@ class ReplaysController extends Controller
     $merge = $this->array_merge_recursive_distinct ($merge, $this->mergeArray($matchid, $gamemode, 'Game Mode'));
     $merge = $this->array_merge_recursive_distinct ($merge, $this->mergeArray($matchid, $vehicle, 'Vehicle'));
     $merge = $this->array_merge_recursive_distinct ($merge, $this->mergeArray($matchid, $time, 'Time'));
+
+    $gamp = GAMP::setClientId( '172375005' );
+    $gamp->setDocumentPath( '/api/matches/' . $name . '/total' );
+    $gamp->sendPageview();
 
     return response()->json($merge);
   }
